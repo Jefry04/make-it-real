@@ -2,11 +2,14 @@ const express = require("express");
 const fs = require("fs");
 const app = express(); // instancia de express
 const port = 3000;
+let users = [];
 
 const logMiddleware = (req, res, next) => {
   console.log(`${new Date(Date.now()).toTimeString()} ${req.method} ${req.path} ${req.ip}`);
   next();
 }
+app.use(logMiddleware); // Toda la aplicacion (app) usa el objeto middleware
+app.use(express.json());  //recibir info en formato JSON
 
 const logMiddlewareUser = (req, res, next) => {
   const fecha = new Date(Date.now()).toTimeString();
@@ -20,22 +23,81 @@ const logMiddlewareUser = (req, res, next) => {
   next();
 }
 
-// inicializa el servidor
 app.listen(port, () => {
   console.log("servidor iniciado...");
-}); // se convierte en servidor de aplicacion y escucha por un puerto
+});
 
-// definir rutas
+
 app.get("/", logMiddleware, (req, res) => {
   res.send("HOME");
 });
 
-app.get("/users", logMiddlewareUser, (req, res) => {
-  res.send("Esta es la ruta de usuarios");
+
+app.route("/users")
+  .get((req, res) => {
+    res.send(users);
+  })
+  .post((req, res) => {
+    const user = {
+      name: req.body.name,
+      username: req.body.username,
+      email: req.body.email,
+      password: req.body.password
+    };
+
+    const findUser = users.find(u => u.username === user.username);
+    if (findUser === undefined) {
+      users.push(user);
+      res.send(`El usuario creado es: ${user.name}`)
+    } else {
+      res.send("el usuario ya existe");
+    }
+
+  })
+
+  app.route("/users/:username")
+  .get((req, res) => {
+      const username = req.params.username;
+      const findUser = users.find(u => u.username === username);
+      if( findUser === undefined ){
+          res.status(500).send("El usuario consultado no existe");
+      }else{
+          res.status(200).send(findUser);
+      }
+  })
+ 
+  .delete((req, res) => {
+      const username = req.params.username;
+      const findUser = users.find(u => u.username === username);
+      if( findUser === undefined ){
+          res.status(500).send("El usuario no existe");
+      }else{
+        const result = users.filter(u => u.username !== username);
+        users = result;
+        res.status(200).send(users);
+          
+      }
+  })
+  .put((req, res) => {
+    const username = req.params.username;
+    const findUser = users.find(u => u.username === username);
+    if( findUser === undefined ){
+        res.status(500).send("El DELETE no existe");
+    }else{
+        users.splice(0);
+        users.push 
+        res.status(200).send(users);
+    }
 });
 
-app.get("/users/:id", logMiddleware, (req, res) => {
-  res.send(`Esta es la pagina del usuario ${req.params.id}`);
+  
+
+
+
+
+app.get("/tweets", logMiddleware, (req, res) => {
+  //const id = req.query.id;
+  //const username =req.query.username;
+  const { id, username } = req.query;
+  res.send(`Este es el Tweet ${id} y el usuario es ${username}`);
 });
-
-

@@ -1,0 +1,6 @@
+
+El calculo del BMI de Jefferson es: 0.00237021620996647
+El calculo del BMI de Michelle es: 0.0018765246762994933
+El calculo del BMI de Katerine es: 0.0028999307479224377
+El calculo del BMI de Ailsa es: 0.0027548209366391185
+El calculo del BMI de Marco es: 0.0021604938271604936

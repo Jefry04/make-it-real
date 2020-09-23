@@ -1,0 +1,14 @@
+HTML CSSResult
+EDIT ON
+body { padding-top: 30px; }
+
+.s1 {
+  background: #E44C26;
+  height: 80px;
+}
+
+.s2 {
+  background: #5F97D7;
+  height: 100px;
+  padding: 10px;
+} 

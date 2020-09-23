@@ -1,0 +1,29 @@
+const persona = [
+    {
+        "name": "Jefferson",
+        "weigth": 82,
+        "height": 186
+    },
+    {
+        "name": "Michelle",
+        "weigth": 40,
+        "height": 146
+    },
+    {
+        "name": "Katerine",
+        "weigth": 67,
+        "height": 152
+    },
+    {
+        "name": "Ailsa",
+        "weigth": 75,
+        "height": 165
+    },
+    {
+        "name": "Marco",
+        "weigth": 70,
+        "height": 180
+    }
+]
+
+module.exports = persona ; 

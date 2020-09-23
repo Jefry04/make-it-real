@@ -38,9 +38,4 @@ app.get("/users/:id", logMiddleware, (req, res) => {
   res.send(`Esta es la pagina del usuario ${req.params.id}`);
 });
 
-app.get("/tweets", logMiddleware, (req, res) => {
-  //const id = req.query.id;
-  //const username =req.query.username;
-  const { id, username } = req.query;
-  res.send(`Este es el Tweet ${id} y el usuario es ${username}`);
-});
+

@@ -1,4 +1,4 @@
-const users = require("./../../models/users");
+let users = require("./../../models/users");
 
 const getUsers = (req, res) => {
     res.send(users);

@@ -1,5 +1,4 @@
-
-   
+const fs = require("fs");
   const log = (req, res, next) => {
     const fecha = new Date(Date.now()).toTimeString();
     const metodo = req.method;

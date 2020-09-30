@@ -5,12 +5,11 @@ const controller = require("./../../controllers/tweets");
 router.route("/")
     .post(controller.newTweet)
     .get(controller.getTweets);
-/*
-router.route("/:username")
-    .get(controller.getUser)
-    .put(controller.updateUser)
-    .delete(controller.deleteUser);
 
-*/
+router.route("/:id")
+    .get(controller.getTweet)
+
+
+
 
 module.exports = router; 

@@ -1,5 +1,6 @@
 let tweets = require("./../../models/tweets");
-
+const lib = require ("./../../lib/dates");
+const response = require("./../../lib/response");
 
 const getTweets = (req, res) => {
     res.send(tweets);
@@ -7,12 +8,22 @@ const getTweets = (req, res) => {
 
 const newTweet = (req, res) => {
     let tweet = {
-        content: req.body.content
+        content: req.body.content,
+        date: lib.getColombianDate()
          };
 
         tweets.push(tweet);
-        res.send ("el tweet ha sido creado");
-
+        res.status(200).json(response(true, [tweet]));
 };
 
-module.exports = { getTweets, newTweet}
+const getTweet = (req, res) => {
+    const id = req.params.id;
+    if(id >= tweets.length){
+        res.status(500).json(response(false, undefined, "El tweet consultado no existe"));
+    }else{
+        
+        res.status(200).json(response(true, [tweets[id]]));
+    }
+};
+
+module.exports = { getTweets, newTweet, getTweet}

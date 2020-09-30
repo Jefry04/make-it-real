@@ -11,19 +11,19 @@ const getUsers = (req, res) => {
 
 const newUser = (req, res) => {
     const saltRounds = bcrypt.genSaltSync(config.SALT);
-    const password = bcrypt.hashSync(req.body.password, saltRounds);
+    const passwordHashed = bcrypt.hashSync(req.body.password, saltRounds);
     let user = {
         name: req.body.name,
         username: req.body.username,
         email: req.body.email,
-        password: password
+        password: passwordHashed
     };
     const findUser = users.find(u => u.username === user.username);
     if (findUser === undefined) {
         users.push(user);
-        res.json (response(true, users));
+        res.status(200).json(response(true, [user]));
     } else {
-        res.json (response(false, undefined, "el usuario ya existe" ));
+        res.status(500).json(response(false, undefined, "El usuario ya existe"));
      
     }
 
@@ -33,11 +33,11 @@ const deleteUser = (req, res) => {
     const username = req.params.username;
     const findUser = users.find(u => u.username === username);
     if (findUser === undefined) {
-        res.status(500).send("El usuario no existe");
+        res.status(500).json(response(false, undefined, "El usuario consultado no existe"));
     } else {
         const result = users.filter(u => u.username !== username);
         users = result;
-        res.status(200).send(users);
+        res.status(200).json(response(true, users));
 
 
     }
@@ -47,7 +47,7 @@ const updateUser = (req, res) => {
     const username1 = req.params.username;
     let findUser = users.find(u => u.username === username1);
     if (findUser === undefined) {
-        res.status(500).send("Elusuario no existe");
+        res.status(500).json(response(false, undefined, "El usuario consultado no existe"));
     } else {
         let user = {
             name: req.body.name,
@@ -58,7 +58,7 @@ const updateUser = (req, res) => {
         let posicion = users.findIndex(x => x.username === username1);
         users.splice(posicion, 1, user);
 
-        res.status(200).send(users);
+        res.status(200).json(response(true, users));
     }
 };
 
@@ -66,9 +66,9 @@ const getUser = (req, res) => {
     const username = req.params.username;
     const findUser = users.find(u => u.username === username);
     if (findUser === undefined) {
-        res.status(500).send("El usuario consultado no existe");
+        res.status(500).json(response(false, undefined, "El usuario consultado no existe"));
     } else {
-        res.status(200).send(findUser);
+        res.status(200).json(response(true, [findUser]));
     }
 };
 

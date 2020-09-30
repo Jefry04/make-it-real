@@ -4,7 +4,7 @@ const fs = require("fs");
     const metodo = req.method;
     const path = req.path;
     const ip = req.ip;
-    const archivos = fs.createWriteStream("./files/acces.log", { flags: 'a' });
+    const archivos = fs.createWriteStream("./logs/acces.log", { flags: 'a' });
     archivos.once("open", (f) => {
       archivos.write(`\nLa fecha es ${fecha} \nLa IP de la consulta es ${ip} \nel metodo es ${metodo}\n La ruta es${path} `)
     });

@@ -1,5 +1,5 @@
 const express = require("express");
-const app = express(); // instancia de express
+const app = express(); 
 const dotenv= require('dotenv').config();
 const config = require("./config");
 const api = require ("./api");

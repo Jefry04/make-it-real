@@ -1,10 +1,12 @@
+
+const bcrypt = require("bcrypt");
 let entrada = process.argv;
 let comparar = entrada [2]
 const frase = entrada[3];
 
 
 console.log (entrada[3]);
-const bcrypt = require("bcrypt");
+
 const saltRounds = 10 ; // cadena de texto que genera aleatorio
 
 if (comparar === "1")

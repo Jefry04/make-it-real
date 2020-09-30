@@ -1,15 +1,21 @@
 let users = require("./../../models/users");
+const bcrypt = require("bcrypt");
+const config = require("./../../../config");
+
+
 
 const getUsers = (req, res) => {
     res.send(users);
 };
 
 const newUser = (req, res) => {
+    const saltRounds = bcrypt.genSaltSync(config.SALT);
+    const password = bcrypt.hashSync(req.body.password, saltRounds);
     let user = {
         name: req.body.name,
         username: req.body.username,
         email: req.body.email,
-        password: req.body.password
+        password: password
     };
     const findUser = users.find(u => u.username === user.username);
     if (findUser === undefined) {
@@ -64,4 +70,4 @@ const getUser = (req, res) => {
     }
 };
 
-module.exports = { getUsers, newUser, deleteUser, updateUser, getUser }
+module.exports = { getUsers, newUser, deleteUser, updateUser, getUser}

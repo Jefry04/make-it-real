@@ -1,11 +1,12 @@
 let users = require("./../../models/users");
 const bcrypt = require("bcrypt");
 const config = require("./../../../config");
+const response = require ("./../../lib/response")
 
 
 
 const getUsers = (req, res) => {
-    res.send(users);
+    res.json(response (true, users));
 };
 
 const newUser = (req, res) => {
@@ -20,9 +21,10 @@ const newUser = (req, res) => {
     const findUser = users.find(u => u.username === user.username);
     if (findUser === undefined) {
         users.push(user);
-        res.send(`El usuario creado es: ${user.name}`)
+        res.json (response(true, users));
     } else {
-        res.send("el usuario ya existe");
+        res.json (response(false, undefined, "el usuario ya existe" ));
+     
     }
 
 };

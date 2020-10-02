@@ -6,6 +6,9 @@ router.route("/")
     .post(controller.newUser)
     .get(controller.getUsers);
 
+router.route("/login")
+    .post(controller.login)
+
 router.route("/:username")
     .get(controller.getUser)
     .put(controller.updateUser)

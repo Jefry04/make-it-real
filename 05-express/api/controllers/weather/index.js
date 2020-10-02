@@ -8,6 +8,7 @@ const getWeather = (req,res)=> {
     fetch(url)
     .then (res =>res.json())
     .then(json => res.json(response(true, [{weather: json.main.temp}])));
+
 };
 
 module.exports = {getWeather}

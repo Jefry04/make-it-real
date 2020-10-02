@@ -1,8 +1,26 @@
-let users = require("./../../models/users");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+let users = require("./../../models/users");
 const config = require("./../../../config");
 const response = require ("./../../lib/response")
 
+
+const login = (req, res) => {
+    const { username, password } =  req.body;
+    const user = users.find( user => user.username === username);
+    if (user){
+        const findUser = bcrypt.compareSync(password, user.password);
+        if (findUser) {
+            const token = jwt.sign({ username }, config.jwtKey);
+            res.json(response(true, [{token}]));
+        }else{
+            res.json(response(false, undefined, "Datos no válidos"));
+        }
+    }else{
+        res.json(response(false, undefined, "Datos no válidos"));
+    }
+
+};
 
 
 const getUsers = (req, res) => {
@@ -72,4 +90,4 @@ const getUser = (req, res) => {
     }
 };
 
-module.exports = { getUsers, newUser, deleteUser, updateUser, getUser}
+module.exports = { getUsers, newUser, deleteUser, updateUser, getUser, login}

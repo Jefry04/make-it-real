@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const controller = require("./../../controllers/users");
-const authentication = require ("./../../middlewares/authentication")
+const authentication = require ("./../../middlewares/authentication");
+const authorization = require ("./../../middlewares/authorization");
 
 router.route("/")
     .post(controller.newUser)
@@ -12,8 +13,8 @@ router.route("/login")
 
 router.route("/:username")
     .get(authentication, controller.getUser)
-    .put(authentication, controller.updateUser)
-    .delete(authentication, controller.deleteUser);
+    .put(authentication, authorization, controller.updateUser)
+    .delete(authentication, authorization, controller.deleteUser);
 
 
 

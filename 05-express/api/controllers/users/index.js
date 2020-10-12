@@ -5,6 +5,7 @@ const config = require("./../../../config");
 const response = require ("./../../lib/response")
 
 
+
 const login = (req, res) => {
     const { username, password } =  req.body;
     const user = users.find( user => user.username === username);
@@ -27,15 +28,21 @@ const getUsers = (req, res) => {
     res.json(response (true, users));
 };
 
-const newUser = (req, res) => {
+const newUser = (req, res)=>{
+
+    const { name, username, password, passwordConfirmation, email } = req.body;
+
     const saltRounds = bcrypt.genSaltSync(config.SALT);
-    const passwordHashed = bcrypt.hashSync(req.body.password, saltRounds);
-    let user = {
-        name: req.body.name,
-        username: req.body.username,
-        email: req.body.email,
+    const passwordHashed = bcrypt.hashSync(password, saltRounds);
+
+    const user = {
+        name,
+        username,
+        email,
         password: passwordHashed
     };
+
+
     const findUser = users.find(u => u.username === user.username);
     if (findUser === undefined) {
         users.push(user);
@@ -49,6 +56,7 @@ const newUser = (req, res) => {
 
 const deleteUser = (req, res) => {
     const username = req.params.username;
+
     const findUser = users.find(u => u.username === username);
     if (findUser === undefined) {
         res.status(500).json(response(false, undefined, "El usuario consultado no existe"));
@@ -63,6 +71,7 @@ const deleteUser = (req, res) => {
 
 const updateUser = (req, res) => {
     const username1 = req.params.username;
+    
     let findUser = users.find(u => u.username === username1);
     if (findUser === undefined) {
         res.status(500).json(response(false, undefined, "El usuario consultado no existe"));

@@ -10,7 +10,7 @@ router.route("/")
 
 router.route("/:id")
     .get(controller.getTweet)
-
+    .delete (controller.deleteTweet);
 
 
 

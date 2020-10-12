@@ -22,9 +22,24 @@ const getTweet = (req, res) => {
     if(id >= tweets.length){
         res.status(500).json(response(false, undefined, "El tweet consultado no existe"));
     }else{
-        
-        res.status(200).json(response(true, [tweets[id]]));
+         res.status(200).json(response(true, [tweets[id]]));
+      
     }
 };
 
-module.exports = { getTweets, newTweet, getTweet}
+const deleteTweet = (req, res) => {
+    const id = req.params.id;
+    if (id < tweets.length)
+    {
+        tweets.splice(tweets[id],1 );
+        res.status(500).json(response(true, undefined, "Se elimino el tweet"));
+      
+    }else {
+        res.status(500).json(response(false, undefined, "El tweet consultado no existe"));
+    }
+    
+   
+ 
+};
+
+module.exports = { getTweets, newTweet, getTweet, deleteTweet}

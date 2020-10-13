@@ -2,7 +2,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 let users = require("./../../models/users");
 const config = require("./../../../config");
-const response = require ("./../../lib/response")
+const response = require ("./../../lib/response");
 
 
 
@@ -99,4 +99,4 @@ const getUser = (req, res) => {
     }
 };
 
-module.exports = { getUsers, newUser, deleteUser, updateUser, getUser, login}
+module.exports = { getUsers, newUser, deleteUser, updateUser, getUser, login};

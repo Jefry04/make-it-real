@@ -81,3 +81,5 @@
 10/8/2020, 6:20:17 PM::jefry01::::1::POST::/::{"content":"posicion 1"} 
 10/8/2020, 6:21:34 PM::jefry01::::1::POST::/::{"content":"posicion 0, se debe borrar"} 
 10/8/2020, 6:21:48 PM::jefry01::::1::POST::/::{"content":"posicion 1,Hola Mundo"} 
+10/12/2020, 7:39:45 PM::jefry01::::1::GET::/::{} 
+10/13/2020, 9:57:41 AM::jefry01::::1::POST::/::{"content":"posicion 1,Hola Mundo"} 

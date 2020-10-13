@@ -1,4 +1,4 @@
-const validator = require ("./../../lib/validators")
+const validator = require ("./../../lib/validators");
 const response = require("./../../lib/response");
 
 const validateUsername = (req, res, next) => {

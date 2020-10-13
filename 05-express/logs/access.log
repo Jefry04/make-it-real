@@ -311,3 +311,6 @@
 ::1 - - [12/Oct/2020:23:21:49 +0000] "POST /api/users HTTP/1.1" 501 71 "-" "PostmanRuntime/7.26.5"
 ::1 - - [12/Oct/2020:23:22:00 +0000] "POST /api/users HTTP/1.1" 501 73 "-" "PostmanRuntime/7.26.5"
 ::1 - - [12/Oct/2020:23:22:07 +0000] "POST /api/users HTTP/1.1" 501 72 "-" "PostmanRuntime/7.26.5"
+::1 - - [13/Oct/2020:00:14:25 +0000] "GET /api/tweets/stream/potus HTTP/1.1" 200 125379 "-" "PostmanRuntime/7.26.5"
+::1 - - [13/Oct/2020:00:15:39 +0000] "GET /api/tweets/stream/jefry04 HTTP/1.1" 200 105892 "-" "PostmanRuntime/7.26.5"
+::1 - - [13/Oct/2020:00:16:39 +0000] "GET /api/tweets/stream/jefry04 HTTP/1.1" 200 105892 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36 Edg/86.0.622.38"

@@ -8,6 +8,9 @@ router.route("/")
     .post(authentication,audits,  controller.newTweet)
     .get(controller.getTweets);
 
+router.route("/stream/:username")
+    .get(controller.getTweetsStream);
+
 router.route("/:id")
     .get(controller.getTweet)
     .delete (controller.deleteTweet);

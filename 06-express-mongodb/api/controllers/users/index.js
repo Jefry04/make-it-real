@@ -1,35 +1,42 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-let users = require("./../../models/users");
+let User = require("./../../models/users");
 const config = require("./../../../config");
 const response = require ("./../../lib/response");
 
 
-
 const login = (req, res) => {
     const { username, password } =  req.body;
-    const user = users.find( user => user.username === username);
-    if (user){
-        const findUser = bcrypt.compareSync(password, user.password);
-        if (findUser) {
-            const token = jwt.sign({ username }, config.jwtKey);
-            res.json(response(true, [{token}]));
-        }else{
-            res.json(response(false, undefined, "Datos no válidos"));
-        }
-    }else{
-        res.json(response(false, undefined, "Datos no válidos"));
-    }
+    User.find ({username: username}, ["password"])
+    .then((user) => {
+      
+            const findUser = bcrypt.compareSync(password, user[0].password);
+            if (findUser) {
+                const token = jwt.sign({ username }, config.jwtKey);                
+                res.json(response(true, [{token}]));
+            }else{
+                res.json(response(false, undefined, "Datos no válidos"));
+            }    
+    })
+    .catch((err)=> {
+        res.json(response (false, undefined, err))
+    });
 
 };
 
-
+// consultar TODOS los usuarios
 const getUsers = (req, res) => {
-    res.json(response (true, users));
+    User.find({}, ["name", "username"])
+    .then ((users)=> {
+        res.json(response (true, users));
+    })
+    .catch((err)=> {
+        res.json(response (false, undefined, [{ message: err}] ));
+    });
 };
+
 
 const newUser = (req, res)=>{
-
     const { name, username, password, passwordConfirmation, email } = req.body;
 
     const saltRounds = bcrypt.genSaltSync(config.SALT);
@@ -41,62 +48,67 @@ const newUser = (req, res)=>{
         email,
         password: passwordHashed
     };
-
-
-    const findUser = users.find(u => u.username === user.username);
-    if (findUser === undefined) {
-        users.push(user);
-        res.status(200).json(response(true, [user]));
-    } else {
-        res.status(500).json(response(false, undefined, "El usuario ya existe"));
-     
-    }
-
+  
+    User.find({username: user.username})
+    .then ((users)=>{
+        if (users.length>  0 ){
+            res.json(response (false, undefined,"Ya existe el  nombre de usuario"));
+        }else {
+            const obj = new User (user);
+            obj.save()
+            .then((user)=>{
+                res.json(response (true, [user]))
+            })
+            .catch((err)=> {
+                res.json(response (false, undefined, err))
+            });
+        }
+    })
+    .catch((err)=> {
+        res.json(response (false, undefined, err))
+    });
 };
+
 
 const deleteUser = (req, res) => {
     const username = req.params.username;
 
-    const findUser = users.find(u => u.username === username);
-    if (findUser === undefined) {
-        res.status(500).json(response(false, undefined, "El usuario consultado no existe"));
-    } else {
-        const result = users.filter(u => u.username !== username);
-        users = result;
-        res.status(200).json(response(true, users));
-
-
-    }
+    User.remove ({username: username})
+    .then((user) =>{
+        res.json(response (true, [{message:"el usuario ha sido borrado"}] ));
+    })
+    .catch((err)=> {
+        res.json(response (false, undefined, err));
+    });
 };
 
 const updateUser = (req, res) => {
-    const username1 = req.params.username;
-    
-    let findUser = users.find(u => u.username === username1);
-    if (findUser === undefined) {
-        res.status(500).json(response(false, undefined, "El usuario consultado no existe"));
-    } else {
-        let user = {
+    const username = req.params.username;
+      let user = {
             name: req.body.name,
             email: req.body.email,
-            username: username1,
-            password: req.body.password
-        };
-        let posicion = users.findIndex(x => x.username === username1);
-        users.splice(posicion, 1, user);
+      };
+  User.findOneAndUpdate ({username: username}, user)
+  .then((user)=> {
+    res.json(response (true, [user]));
+  })
+  .catch((err) =>{
+    res.json(response (false, undefined, err));
+  });
 
-        res.status(200).json(response(true, users));
-    }
 };
 
+// consultar un usuario especifico
 const getUser = (req, res) => {
     const username = req.params.username;
-    const findUser = users.find(u => u.username === username);
-    if (findUser === undefined) {
-        res.status(500).json(response(false, undefined, "El usuario consultado no existe"));
-    } else {
-        res.status(200).json(response(true, [findUser]));
-    }
+    User.find({username: username}, ["name", "username"])
+    .then ((users)=> {
+        res.json(response (true, users));
+    })
+    .catch((err)=> {
+        res.json(response (false, undefined, err))
+    });
+
 };
 
 module.exports = { getUsers, newUser, deleteUser, updateUser, getUser, login};

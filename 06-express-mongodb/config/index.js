@@ -3,6 +3,7 @@ const config = {
     salt : process.env.SALT,
     weatherKey : process.env.WEATHER_KEY,
     jwtKey : process.env.JWT_KEY,
+    dbConnectionString: process.env.DB_CONNECTION_STRING,
     twitter: {
         consumerKey: process.env.CONSUMER_KEY,
         consumerSecret: process.env.CONSUMER_SECRET,

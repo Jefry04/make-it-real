@@ -8,7 +8,7 @@ const validator = require ("./../../middlewares/validator");
 
 router.route("/")
     .post(validator.validateNewUser, controller.newUser)
-    .get(authentication, audits, controller.getUsers);
+    .get(authentication, audits,controller.getUsers);
 
 router.route("/login")
     .post(controller.login);

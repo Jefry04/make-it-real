@@ -1,32 +1,49 @@
 const Twitter = require("twitter");
-let tweets = require("./../../models/tweets");
+//let tweets = require("./../../models/tweets");
+let Tweet = require("./../../models/tweets");
 const lib = require ("./../../lib/dates");
 const response = require("./../../lib/response");
 const config = require ("./../../../config");
 
+
+// todos los tweets
 const getTweets = (req, res) => {
-    res.send(tweets);
+    Tweet.find({})
+    .then((tweet)=>{
+      res.status(200).json(response(true, tweet));
+    })
+    .catch((err)=>{
+        res.json(response (false, undefined, err));
+    });
 };
+
 
 const newTweet = (req, res) => {
-    let tweet = {
-        content: req.body.content,
-        date: lib.getColombianDate(),
-        username:req.username
-    };
-
-    tweets.push(tweet);
-    res.status(200).json(response(true, [tweet]));
+    const tweet = {content: req.body.content}                             
+        const obj = new Tweet (tweet);
+        obj.save()
+            .then((tweet)=>{
+                res.json(response (true, [tweet]))                
+            })
+            .catch((err)=> {
+                res.json(response (false, undefined, err))
+            });      
 };
+
 
 const getTweet = (req, res) => {
     const id = req.params.id;
-    if(id >= tweets.length){
-        res.status(500).json(response(false, undefined, "El tweet consultado no existe"));
-    }else{
-        res.status(200).json(response(true, [tweets[id]]));
-      
-    }
+    Tweet.find({})
+    .then((tweet)=>{       
+        if(id >= tweet.length){
+            res.status(500).json(response(false, undefined, "El tweet consultado no existe"));
+        }else {
+            res.status(200).json(response(true, tweet[id]));
+        }     
+    })
+    .catch((err)=>{
+        res.json(response (false, undefined, err));
+    });  
 };
 
 const getTweetsStream = (req, res) => {
@@ -47,17 +64,23 @@ const getTweetsStream = (req, res) => {
 
 const deleteTweet = (req, res) => {
     const id = req.params.id;
-    if (id < tweets.length)
-    {
-        tweets.splice(tweets[id],1 );
-        res.status(500).json(response(true, undefined, "Se elimino el tweet"));
-      
-    }else {
-        res.status(500).json(response(false, undefined, "El tweet consultado no existe"));
-    }
-    
-   
- 
+    Tweet.find({})
+    .then((tweet)=>{       
+        if(id >= tweet.length){
+            res.status(500).json(response(false, undefined, "El tweet consultado no existe"));
+        }else {         
+            Tweet.remove (tweet [id])
+            .then((tweet) =>{
+                res.json(response (true, [{message:"el usuario ha sido borrado"}] ));
+            })
+            .catch((err)=> {
+                res.json(response (false, undefined, err));
+            });
+        }     
+    })
+    .catch((err)=>{
+        res.json(response (false, undefined, err));
+    });  
 };
 
 module.exports = { getTweets, newTweet, getTweet, getTweetsStream, deleteTweet};

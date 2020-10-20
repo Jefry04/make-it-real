@@ -28,11 +28,13 @@ const login = (req, res) => {
 const getUsers = (req, res) => {
     User.find({}, ["name", "username"])
     .then ((users)=> {
+        console.log(users)
         res.json(response (true, users));
     })
     .catch((err)=> {
         res.json(response (false, undefined, [{ message: err}] ));
     });
+    
 };
 
 
@@ -51,6 +53,7 @@ const newUser = (req, res)=>{
   
     User.find({username: user.username})
     .then ((users)=>{
+
         if (users.length>  0 ){
             res.json(response (false, undefined,"Ya existe el  nombre de usuario"));
         }else {

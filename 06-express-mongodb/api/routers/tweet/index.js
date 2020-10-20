@@ -5,7 +5,7 @@ const authentication = require ("./../../middlewares/authentication");
 const audits = require ("./../../middlewares/audits");
 
 router.route("/")
-    .post(authentication,audits,  controller.newTweet)
+    .post( controller.newTweet)
     .get(controller.getTweets);
 
 router.route("/stream/:username")

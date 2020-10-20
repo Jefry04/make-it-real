@@ -88,3 +88,16 @@
 10/18/2020, 1:58:23 PM::jefry01::::1::GET::/::{} 
 10/18/2020, 1:58:53 PM::jefry02::::1::PUT::/jefry02::{"name":"KATERINE","email":"miche@gmail.com"} 
 10/18/2020, 1:59:07 PM::jefry01::::1::GET::/::{} 
+10/19/2020, 8:15:06 PM::jefry01::::1::POST::/::{"content":"posicion 1,Hola Mundo"} 
+10/19/2020, 8:21:01 PM::jefry01::::1::POST::/::{"content":"posicion 1,Hola Mundo"} 
+10/19/2020, 8:22:11 PM::jefry01::::1::POST::/::{"content":"posicion 1,Hola Mundo"} 
+10/19/2020, 8:22:50 PM::jefry01::::1::POST::/::{"content":"posicion 1,Hola Mundo"} 
+10/19/2020, 8:27:50 PM::jefry01::::1::GET::/::{} 
+10/19/2020, 8:39:06 PM::jefry01::::1::GET::/::{} 
+10/19/2020, 8:39:30 PM::jefry01::::1::GET::/::{} 
+10/19/2020, 8:39:48 PM::jefry01::::1::GET::/::{} 
+10/19/2020, 8:41:26 PM::jefry01::::1::GET::/::{} 
+10/19/2020, 8:42:05 PM::jefry01::::1::GET::/::{} 
+10/19/2020, 8:42:52 PM::jefry01::::1::GET::/::{} 
+10/19/2020, 8:43:04 PM::jefry01::::1::GET::/::{} 
+10/19/2020, 8:43:32 PM::jefry01::::1::GET::/::{} 

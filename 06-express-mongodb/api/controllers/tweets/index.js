@@ -9,8 +9,8 @@ const config = require ("./../../../config");
 // todos los tweets
 const getTweets = (req, res) => {
     Tweet.find({})
-    .then((tweet)=>{
-      res.status(200).json(response(true, tweet));
+    .then((tweets)=>{
+      res.status(200).json(response(true, tweets));
     })
     .catch((err)=>{
         res.json(response (false, undefined, err));

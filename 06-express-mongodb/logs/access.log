@@ -495,3 +495,6 @@
 ::1 - - [20/Oct/2020:23:49:55 +0000] "POST /api/tweets HTTP/1.1" 200 100 "-" "PostmanRuntime/7.26.5"
 ::1 - - [20/Oct/2020:23:50:02 +0000] "POST /api/tweets HTTP/1.1" 200 178 "-" "PostmanRuntime/7.26.5"
 ::1 - - [20/Oct/2020:23:52:34 +0000] "POST /api/users HTTP/1.1" 200 286 "-" "PostmanRuntime/7.26.5"
+::1 - - [20/Oct/2020:23:54:45 +0000] "GET /api/tweets HTTP/1.1" 200 27 "-" "PostmanRuntime/7.26.5"
+::1 - - [22/Oct/2020:14:37:32 +0000] "GET /api/tweets HTTP/1.1" 200 27 "-" "PostmanRuntime/7.26.5"
+::1 - - [22/Oct/2020:14:37:39 +0000] "GET /api/users HTTP/1.1" 200 473 "-" "PostmanRuntime/7.26.5"

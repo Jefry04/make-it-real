@@ -1,5 +1,4 @@
 const Twitter = require("twitter");
-//let tweets = require("./../../models/tweets");
 let Tweet = require("./../../models/tweets");
 const lib = require ("./../../lib/dates");
 const response = require("./../../lib/response");
@@ -19,7 +18,10 @@ const getTweets = (req, res) => {
 
 
 const newTweet = (req, res) => {
-    const tweet = {content: req.body.content}                             
+    const tweet = {
+        content: req.body.content,
+        user: req.id,
+    };                             
         const obj = new Tweet (tweet);
         obj.save()
             .then((tweet)=>{

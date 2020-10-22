@@ -3,6 +3,7 @@ const config = {
     salt : process.env.SALT,
     weatherKey : process.env.WEATHER_KEY,
     jwtKey : process.env.JWT_KEY,
+    jwtExp: Math.floor(Date.now() / 1000) + (60 * 60),
     dbConnectionString: process.env.DB_CONNECTION_STRING,
     twitter: {
         consumerKey: process.env.CONSUMER_KEY,

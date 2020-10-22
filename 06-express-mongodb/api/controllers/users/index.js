@@ -7,38 +7,38 @@ const response = require ("./../../lib/response");
 
 const login = (req, res) => {
     const { username, password } =  req.body;
-    User.find ({username: username}, ["password"])
-    .then((user) => {
-      
-            const findUser = bcrypt.compareSync(password, user[0].password);
-            if (findUser) {
-                const token = jwt.sign({ username }, config.jwtKey);                
-                res.json(response(true, [{token}]));
-            }else{
-                res.json(response(false, undefined, "Datos no válidos"));
-            }    
-    })
-    .catch((err)=> {
-        res.json(response (false, undefined, err))
-    });
-
-};
-
-// consultar TODOS los usuarios
-const getUsers = (req, res) => {
-    User.find({}, ["name", "username"])
-    .then ((users)=> {
-        console.log(users)
-        res.json(response (true, users));
-    })
-    .catch((err)=> {
-        res.json(response (false, undefined, [{ message: err}] ));
-    });
     
+    User.find({ username: username}, ["password"])
+    .then((users) => {
+        const findUser = bcrypt.compareSync(password, users[0].password);
+        if (findUser) {
+            const id = users[0]._id;
+            const token = jwt.sign({ 
+                exp: config.jwtExp,
+                id, }, config.jwtKey);
+            res.status(200).json(response(true, [{token}]));
+        }else{
+            res.status(500).json(response(false, undefined, "Datos no válidos"));
+        }
+    })
+    .catch((errr) => {
+        res.status(500).json(response(false, undefined, err));
+    });
 };
 
 
-const newUser = (req, res)=>{
+const read = (req, res) => {
+    User.find({}, ["name", "username"])
+    .then((users) => {
+        res.json(response(true, users));
+    })
+    .catch((err) => {
+        res.json(response(false, undefined, err));
+    });
+};
+
+const create = (req, res)=>{
+
     const { name, username, password, passwordConfirmation, email } = req.body;
 
     const saltRounds = bcrypt.genSaltSync(config.SALT);
@@ -50,68 +50,65 @@ const newUser = (req, res)=>{
         email,
         password: passwordHashed
     };
-  
-    User.find({username: user.username})
-    .then ((users)=>{
 
-        if (users.length>  0 ){
-            res.json(response (false, undefined,"Ya existe el  nombre de usuario"));
-        }else {
-            const obj = new User (user);
-            obj.save()
-            .then((user)=>{
-                res.json(response (true, [user]))
-            })
-            .catch((err)=> {
-                res.json(response (false, undefined, err))
-            });
+    User.find({ username: user.username})
+    .then((users) => {
+        if (users.length > 0){
+            res.json(response(false, undefined, "Ya existe un usuario con el mismo username"))
+        }else{
+           const obj = new User(user);
+           obj.save()
+           .then((user) => {
+               res.json(response(true, [user]))
+           })
+           .catch((err) => {
+               res.json(response(false, undefined, err));
+           });
         }
     })
-    .catch((err)=> {
-        res.json(response (false, undefined, err))
+    .catch((err) => {
+        res.json(response(false, undefined, err));
     });
 };
 
-
-const deleteUser = (req, res) => {
+const remove = (req, res) => {
     const username = req.params.username;
 
-    User.remove ({username: username})
-    .then((user) =>{
-        res.json(response (true, [{message:"el usuario ha sido borrado"}] ));
+    User.remove({username: username})
+    .then(() => {
+        res.json(response(true, [{message: "Usuario eliminado"}]));
     })
-    .catch((err)=> {
-        res.json(response (false, undefined, err));
+    .catch(() => {
+        res.json(response(false, undefined, err));
     });
 };
 
-const updateUser = (req, res) => {
+const update = (req, res) => {
     const username = req.params.username;
-      let user = {
-            name: req.body.name,
-            email: req.body.email,
-      };
-  User.findOneAndUpdate ({username: username}, user)
-  .then((user)=> {
-    res.json(response (true, [user]));
-  })
-  .catch((err) =>{
-    res.json(response (false, undefined, err));
-  });
 
+    const user = {
+        name: req.body.name,
+        email: req.body.email,
+    };
+
+    User.findOneAndUpdate({username: username}, user)
+    .then((user) => {
+        res.json(response(true, user));
+    })
+    .catch((err) => {
+        res.json(response(false, undefined, err));
+    });
 };
 
-// consultar un usuario especifico
-const getUser = (req, res) => {
+const readOne = (req, res) => {
     const username = req.params.username;
     User.find({username: username}, ["name", "username"])
-    .then ((users)=> {
-        res.json(response (true, users));
+    .then((users) => {
+        res.json(response(true, users));
     })
-    .catch((err)=> {
-        res.json(response (false, undefined, err))
+    .catch((err) => {
+        res.json(response(false, undefined, err));
     });
-
 };
 
-module.exports = { getUsers, newUser, deleteUser, updateUser, getUser, login};
+module.exports = {read, create, remove, update, readOne, login}; 

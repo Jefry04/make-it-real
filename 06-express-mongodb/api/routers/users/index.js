@@ -7,17 +7,15 @@ const audits = require ("./../../middlewares/audits");
 const validator = require ("./../../middlewares/validator");
 
 router.route("/")
-    .post(validator.validateNewUser, controller.newUser)
-    .get(authentication, audits,controller.getUsers);
+    .post(validator.validateNewUser, controller.create)
+    .get(authentication, audits, controller.read);
 
 router.route("/login")
     .post(controller.login);
 
 router.route("/:username")
-    .get(authentication, controller.getUser)
-    .put(authentication, authorization, audits, controller.updateUser)
-    .delete(authentication, authorization, audits, controller.deleteUser);
+    .get(authentication, controller.readOne)
+    .put(authentication, authorization, audits, controller.update)
+    .delete(authentication, authorization, audits, controller.remove);
 
-
-
-module.exports = router; 
+module.exports = router;

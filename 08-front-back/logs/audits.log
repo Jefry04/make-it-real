@@ -1,0 +1,104 @@
+10/7/2020, 9:53:38 PM::jefry02::::1::GET::/::{} 
+10/7/2020, 9:53:45 PM::jefry02::::1::POST::/::{"content":"Este es mi algun tweet"} 
+10/7/2020, 9:53:54 PM::jefry02::::1::PUT::/jefry02::{"name":"Michelle Vasquedz","email":"miche@gmail.com","password":"37872"} 
+10/7/2020, 10:21:19 PM::jefry02::::1::GET::/::{} 
+10/7/2020, 10:21:43 PM::jefry02::::1::DELETE::/jefry02::{} 
+10/7/2020, 10:21:46 PM::jefry02::::1::GET::/::{} 
+10/7/2020, 10:24:07 PM::jefry02::::1::POST::/::{"content":"Nuevo tweet"} 
+10/7/2020, 10:26:34 PM::jefry02::::1::POST::/::{"content":"Nuevo tweet"} 
+10/7/2020, 10:27:43 PM::jefry02::::1::GET::/::{} 
+10/7/2020, 10:27:53 PM::jefry02::::1::GET::/::{} 
+10/7/2020, 10:28:23 PM::jefry02::::1::POST::/::{"content":"Nuevo tweet de jefry02"} 
+10/7/2020, 10:29:09 PM::jefry02::::1::POST::/::{"content":"Nuevo tweet de jefry03"} 
+10/7/2020, 10:29:36 PM::jefry02::::1::GET::/::{} 
+10/7/2020, 10:34:28 PM::jefry02::::1::GET::/::{} 
+10/7/2020, 10:37:26 PM::jefry02::::1::GET::/::{} 
+10/7/2020, 10:38:01 PM::jefry02::::1::POST::/::{"content":"PROBANDO"} 
+10/7/2020, 10:42:11 PM::jefry02::::1::POST::/::{"content":"TWEET NUMERO 2"} 
+10/7/2020, 10:49:01 PM::jefry02::::1::POST::/::{"content":"TWEET NUMERO 2"} 
+10/7/2020, 10:51:08 PM::jefry02::::1::POST::/::{"content":"TWEET NUMERO 2"} 
+10/7/2020, 10:52:02 PM::jefry02::::1::POST::/::{"content":"prueba"} 
+10/7/2020, 10:53:25 PM::jefry02::::1::DELETE::/jefry02::{} 
+10/7/2020, 10:53:54 PM::jefry02::::1::DELETE::/jefry02::{} 
+10/7/2020, 10:54:05 PM::jefry02::::1::DELETE::/jefry02::{} 
+10/7/2020, 10:54:16 PM::jefry02::::1::DELETE::/jefry02::{} 
+10/7/2020, 10:56:00 PM::jefry02::::1::POST::/::{"content":"prueba"} 
+10/7/2020, 10:57:20 PM::jefry02::::1::POST::/::{"content":"prueba"} 
+10/7/2020, 10:57:56 PM::jefry02::::1::POST::/::{"content":"prueba"} 
+10/7/2020, 10:58:25 PM::jefry02::::1::POST::/::{"content":"el segundo"} 
+10/7/2020, 10:58:52 PM::jefry02::::1::POST::/::{"content":"el segundo"} 
+10/7/2020, 10:59:18 PM::jefry02::::1::POST::/::{"content":"el segundo"} 
+10/7/2020, 11:02:33 PM::jefry02::::1::GET::/::{} 
+10/7/2020, 11:03:39 PM::jefry02::::1::DELETE::/jefry02::{} 
+10/7/2020, 11:03:51 PM::jefry02::::1::GET::/::{} 
+10/7/2020, 11:03:56 PM::jefry02::::1::DELETE::/jefry02::{} 
+10/7/2020, 11:08:52 PM::jefry02::::1::GET::/::{} 
+10/7/2020, 11:09:20 PM::jefry01::::1::GET::/::{} 
+10/7/2020, 11:09:33 PM::jefry02::::1::POST::/::{"content":"el primero"} 
+10/7/2020, 11:09:43 PM::jefry01::::1::POST::/::{"content":"el primero"} 
+10/7/2020, 11:10:58 PM::jefry01::::1::POST::/::{"content":"el primero"} 
+10/7/2020, 11:11:24 PM::jefry01::::1::POST::/::{"content":"el segundo"} 
+10/7/2020, 11:18:01 PM::jefry01::::1::POST::/::{"content":"el primero"} 
+10/7/2020, 11:18:09 PM::jefry01::::1::POST::/::{"content":"el segundo"} 
+10/7/2020, 11:20:31 PM::jefry01::::1::POST::/::{"content":"este debe quedar"} 
+10/7/2020, 11:20:38 PM::jefry01::::1::POST::/::{"content":"este se debe borrar"} 
+10/7/2020, 11:22:02 PM::jefry01::::1::POST::/::{"content":"este se debe borrar"} 
+10/7/2020, 11:22:08 PM::jefry01::::1::POST::/::{"content":"este debe quedar"} 
+10/7/2020, 11:23:43 PM::jefry01::::1::POST::/::{"content":"posicion 0"} 
+10/7/2020, 11:23:46 PM::jefry01::::1::POST::/::{"content":"posicion 1"} 
+10/7/2020, 11:24:23 PM::jefry01::::1::POST::/::{"content":"posicion 0"} 
+10/7/2020, 11:24:27 PM::jefry01::::1::POST::/::{"content":"posicion 1"} 
+10/7/2020, 11:26:38 PM::jefry01::::1::POST::/::{"content":"posicion 0"} 
+10/7/2020, 11:26:41 PM::jefry01::::1::POST::/::{"content":"posicion 1"} 
+10/7/2020, 11:29:54 PM::jefry01::::1::POST::/::{"content":"posicion 0"} 
+10/7/2020, 11:30:03 PM::jefry01::::1::POST::/::{"content":"posicion 1"} 
+10/7/2020, 11:31:46 PM::jefry01::::1::POST::/::{"content":"posicion 0"} 
+10/7/2020, 11:31:49 PM::jefry01::::1::POST::/::{"content":"posicion 1"} 
+10/7/2020, 11:33:12 PM::jefry01::::1::POST::/::{"content":"posicion 0"} 
+10/7/2020, 11:33:16 PM::jefry01::::1::POST::/::{"content":"posicion 1"} 
+10/7/2020, 11:35:03 PM::jefry01::::1::POST::/::{"content":"posicion "} 
+10/7/2020, 11:35:06 PM::jefry01::::1::POST::/::{"content":"posicion 1"} 
+10/7/2020, 11:48:19 PM::jefry01::::1::POST::/::{"content":"posicion 0"} 
+10/7/2020, 11:48:23 PM::jefry01::::1::POST::/::{"content":"posicion 1"} 
+10/7/2020, 11:48:41 PM::jefry01::::1::POST::/::{"content":"posicion 1"} 
+10/7/2020, 11:59:04 PM::jefry01::::1::POST::/::{"content":"posicion 1"} 
+10/7/2020, 11:59:33 PM::jefry01::::1::POST::/::{"content":"posicion 0"} 
+10/7/2020, 11:59:37 PM::jefry01::::1::POST::/::{"content":"posicion 1"} 
+10/7/2020, 11:59:58 PM::jefry01::::1::POST::/::{"content":"posicion 0"} 
+10/8/2020, 12:00:02 AM::jefry01::::1::POST::/::{"content":"posicion 1"} 
+10/8/2020, 5:56:37 PM::jefry01::::1::POST::/::{"content":"posicion 0"} 
+10/8/2020, 5:57:10 PM::jefry01::::1::POST::/::{"content":"posicion 0"} 
+10/8/2020, 5:57:34 PM::jefry01::::1::POST::/::{"content":"posicion 0"} 
+10/8/2020, 5:57:52 PM::jefry01::::1::POST::/::{"content":"posicion 0"} 
+10/8/2020, 6:14:10 PM::jefry01::::1::POST::/::{"content":"posicion 0"} 
+10/8/2020, 6:14:13 PM::jefry01::::1::POST::/::{"content":"posicion 1"} 
+10/8/2020, 6:15:04 PM::jefry01::::1::POST::/::{"content":"posicion9"} 
+10/8/2020, 6:16:14 PM::jefry01::::1::POST::/::{"content":"posicion9"} 
+10/8/2020, 6:16:38 PM::jefry01::::1::POST::/::{"content":"posicion"} 
+10/8/2020, 6:18:05 PM::jefry01::::1::POST::/::{"content":"posicion"} 
+10/8/2020, 6:19:00 PM::jefry01::::1::POST::/::{"content":"posicion"} 
+10/8/2020, 6:20:13 PM::jefry01::::1::POST::/::{"content":"posicion 0"} 
+10/8/2020, 6:20:17 PM::jefry01::::1::POST::/::{"content":"posicion 1"} 
+10/8/2020, 6:21:34 PM::jefry01::::1::POST::/::{"content":"posicion 0, se debe borrar"} 
+10/8/2020, 6:21:48 PM::jefry01::::1::POST::/::{"content":"posicion 1,Hola Mundo"} 
+10/12/2020, 7:39:45 PM::jefry01::::1::GET::/::{} 
+10/13/2020, 9:57:41 AM::jefry01::::1::POST::/::{"content":"posicion 1,Hola Mundo"} 
+10/18/2020, 1:57:58 PM::jefry01::::1::GET::/::{} 
+10/18/2020, 1:58:11 PM::jefry02::::1::PUT::/jefry02::{"name":"Michelle Vasquez","email":"miche@gmail.com","password":"37872"} 
+10/18/2020, 1:58:23 PM::jefry01::::1::GET::/::{} 
+10/18/2020, 1:58:53 PM::jefry02::::1::PUT::/jefry02::{"name":"KATERINE","email":"miche@gmail.com"} 
+10/18/2020, 1:59:07 PM::jefry01::::1::GET::/::{} 
+10/19/2020, 8:15:06 PM::jefry01::::1::POST::/::{"content":"posicion 1,Hola Mundo"} 
+10/19/2020, 8:21:01 PM::jefry01::::1::POST::/::{"content":"posicion 1,Hola Mundo"} 
+10/19/2020, 8:22:11 PM::jefry01::::1::POST::/::{"content":"posicion 1,Hola Mundo"} 
+10/19/2020, 8:22:50 PM::jefry01::::1::POST::/::{"content":"posicion 1,Hola Mundo"} 
+10/19/2020, 8:27:50 PM::jefry01::::1::GET::/::{} 
+10/19/2020, 8:39:06 PM::jefry01::::1::GET::/::{} 
+10/19/2020, 8:39:30 PM::jefry01::::1::GET::/::{} 
+10/19/2020, 8:39:48 PM::jefry01::::1::GET::/::{} 
+10/19/2020, 8:41:26 PM::jefry01::::1::GET::/::{} 
+10/19/2020, 8:42:05 PM::jefry01::::1::GET::/::{} 
+10/19/2020, 8:42:52 PM::jefry01::::1::GET::/::{} 
+10/19/2020, 8:43:04 PM::jefry01::::1::GET::/::{} 
+10/19/2020, 8:43:32 PM::jefry01::::1::GET::/::{} 
+10/22/2020, 9:37:39 AM::jefry01::::1::GET::/::{} 

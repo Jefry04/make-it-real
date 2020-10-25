@@ -27,14 +27,13 @@ const login = (req, res) => {
 };
 
 
-const read = (req, res) => {
-    User.find({}, ["name", "username"])
-    .then((users) => {
+const read = async (req, res) => {
+    try{
+        const users = await User.find({}, ["name", "username"]);
         res.json(response(true, users));
-    })
-    .catch((err) => {
+    }catch(err){
         res.json(response(false, undefined, err));
-    });
+    }
 };
 
 const create = (req, res)=>{

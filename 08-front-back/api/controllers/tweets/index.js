@@ -7,7 +7,7 @@ const config = require ("./../../../config");
 // todos los tweets
 
 const getTweets = (req, res)=>{
-    const { page = 1, limit = 5 } = req.query;
+    const { page = 1, limit = 10 } = req.query;
     const skip = (page - 1) * limit;
 
     Tweet

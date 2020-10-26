@@ -505,3 +505,4 @@
 ::1 - - [25/Oct/2020:23:31:18 +0000] "POST /api/users HTTP/1.1" - - "-" "PostmanRuntime/7.26.5"
 ::1 - - [25/Oct/2020:23:32:33 +0000] "POST /api/users HTTP/1.1" 200 40 "-" "PostmanRuntime/7.26.5"
 ::1 - - [25/Oct/2020:23:32:48 +0000] "POST /api/users HTTP/1.1" 200 285 "-" "PostmanRuntime/7.26.5"
+::1 - - [26/Oct/2020:00:57:21 +0000] "GET /api/tweets HTTP/1.1" 200 198 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36 Edg/86.0.622.51"
